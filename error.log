@@ -1,0 +1,36 @@
+[2025-01-29T23:41:27.751Z] 🚨 Error detectado: Maximum call stack size exceeded 
+ Stack: RangeError: Maximum call stack size exceeded
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:53)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+[2025-01-29T23:42:40.813Z] 🚨 Error detectado: Maximum call stack size exceeded 
+ Stack: RangeError: Maximum call stack size exceeded
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:160)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+[2025-01-29T23:56:00.851Z] 🚨 Error detectado: Maximum call stack size exceeded 
+ Stack: RangeError: Maximum call stack size exceeded
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:53)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)
+    at ia (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:119)
+    at oa (C:\Users\zapan\OneDrive\Escritorio\UAC PUCARANI\UAC PUCARANI\Backend\node_modules\.prisma\client\runtime\library.js:29:851)

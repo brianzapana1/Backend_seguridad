@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client-logs"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_LOGS")
+}
+
+model Logs_Sistema {
+  idLog       Int      @id @default(autoincrement())
+  idUsuario   String?  @db.VarChar(100) // 🔥 Ahora almacena el nombre de usuario
+  Tipo_evento String   @db.VarChar(50)
+  Descripcion String?
+  Fecha       DateTime 
+  ipUsuario   String?  @db.VarChar(50)  // 🔥 Ahora puede ser NULL
+  Nivel       String   @db.VarChar(50)
+}
+
+
+model Logs_Permissions {
+  idLog                Int      @id @default(autoincrement())
+  idAdministrador_mod  String?  @db.VarChar(255) // 🔥 Aumentado a 255
+  idUsuario            String?  @db.VarChar(255) // 🔥 Aumentado a 255
+  idModulo             Int
+  Permiso              String   @db.VarChar(100) // 🔥 Aumentado a 100
+  Fecha                DateTime 
+}
+
+
+model Logs_Passwords {
+  idLog                 Int      @id @default(autoincrement())
+  idUsuario            String?  @db.VarChar(100) // 🔥 Ahora almacena el nombre de usuario
+  Password_anterior_hash String   @db.VarChar(255)
+  Fecha_cambio         DateTime 
+  Fecha_siguiente_cambio  DateTime 
+  Motivo               String?   @db.VarChar(100)  // 🔥 Ahora puede ser NULL
+}
+
+model Logs_Intentos_Login {
+  idIntento      Int      @id @default(autoincrement())
+  idUsuario      String?  @db.VarChar(100) // 🔥 Ahora almacena el nombre de usuario
+  ipUsuario      String?  @db.VarChar(50)  // 🔥 Puede ser NULL
+  Fecha_intento  DateTime 
+  Exitoso        Boolean
+  Motivo_fallo   String?  @db.VarChar(255) // 🔥 Ahora puede ser NULL
+  Numero_intento Int
+}
+

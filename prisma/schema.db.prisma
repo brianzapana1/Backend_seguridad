@@ -1,0 +1,200 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"  // ✅ Correcto
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Usuario {
+  idUsuario          Int                  @id @default(autoincrement())
+  idPersona          Int                  @unique
+  Nombre_usuario     String               @unique
+  Contrasenia        String
+  Bloqueado          Boolean              @default(false)
+  intentos_fallidos  Int                  @default(0) 
+
+  Actividades        Actividades[]
+  Blog               Blog[]
+  BolsaTrabajo       BolsaTrabajo[]
+  Eventos            Eventos[]
+  Noticias           Noticias[]
+  RecursosAcademicos RecursosAcademicos[]
+  Reservas           Reservas[]
+  Persona            Persona              @relation(fields: [idPersona], references: [idPersona])
+  UsuarioRol         UsuarioRol[]
+}
+
+
+model Persona {
+  idPersona          Int                  @id @default(autoincrement())
+  Nombre             String
+  Tercer_Nombre      String?
+  Apellido_Paterno   String
+  Apellido_Materno   String
+  Correo             String               @unique
+  Telefono           String?
+  Direccion          String?
+  idCarrera          Int?
+  Seg_Nombre         String?
+  BeneficiariosBeca  BeneficiariosBeca[]
+  HistorialAcademico HistorialAcademico[]
+  Carrera            Carrera?             @relation(fields: [idCarrera], references: [idCarrera])
+  Usuario            Usuario?
+}
+
+model Noticias {
+  idNoticia         Int      @id @default(autoincrement())
+  Titulo            String
+  Contenido         String
+  Fecha_publicacion DateTime
+  Categoria         String
+  Autor             String
+  Imagen            String?
+  idUsuario         Int
+  Usuario           Usuario  @relation(fields: [idUsuario], references: [idUsuario])
+}
+
+model Blog {
+  idBlog            Int      @id @default(autoincrement())
+  Titulo            String
+  Contenido         String
+  Fecha_publicacion DateTime
+  Categoria         String
+  idUsuario         Int
+  Usuario           Usuario  @relation(fields: [idUsuario], references: [idUsuario])
+}
+
+model BolsaTrabajo {
+  idBolsa           Int      @id @default(autoincrement())
+  Titulo            String
+  Descripcion       String
+  Fecha_publicacion DateTime
+  Fecha_expiracion  DateTime
+  idUsuario         Int
+  Usuario           Usuario  @relation(fields: [idUsuario], references: [idUsuario])
+}
+
+model Roles {
+  idRol          Int          @id @default(autoincrement())
+  Nombre         String       @unique
+  descripcionRol String?
+  UsuarioRol     UsuarioRol[]
+}
+
+model UsuarioRol {
+  idUsuarioRol Int        @id @default(autoincrement())
+  idRol        Int
+  idUsuario    Int
+  Permisos     Permisos[]
+  Rol          Roles      @relation(fields: [idRol], references: [idRol])
+  Usuario      Usuario    @relation(fields: [idUsuario], references: [idUsuario])
+}
+
+model Permisos {
+  idPermiso    Int        @id @default(autoincrement())
+  idModulo     Int
+  idUsuarioRol Int
+  Crear        Boolean
+  Actualizar   Boolean
+  Eliminar     Boolean
+  Leer         Boolean
+  Reportes     Boolean
+  Modulo       Modulo     @relation(fields: [idModulo], references: [idModulo])
+  UsuarioRol   UsuarioRol @relation(fields: [idUsuarioRol], references: [idUsuarioRol])
+}
+
+model Modulo {
+  idModulo    Int        @id @default(autoincrement())
+  Nombre      String     @unique
+  Descripcion String
+  Activo      Boolean
+  Permisos    Permisos[]
+}
+
+model Eventos {
+  idEvento    Int      @id @default(autoincrement())
+  Titulo      String
+  Descripcion String
+  Categoria   String
+  FechaFin    DateTime
+  FechaInicio DateTime
+  idUsuario   Int
+  Usuario     Usuario  @relation(fields: [idUsuario], references: [idUsuario])
+}
+
+model RecursosAcademicos {
+  idRecurso Int        @id @default(autoincrement())
+  idUsuario Int
+  Titulo    String
+  Autor     String
+  Tipo      String
+  Categoria String
+  Portada   String?
+  Archivo   String
+  Usuario   Usuario    @relation(fields: [idUsuario], references: [idUsuario])
+  Reservas  Reservas[]
+}
+
+model Reservas {
+  idReserva     Int                @id @default(autoincrement())
+  idRecurso     Int
+  Fecha_reserva DateTime
+  idUsuarioRes  Int
+  Recurso       RecursosAcademicos @relation(fields: [idRecurso], references: [idRecurso])
+  Usuario       Usuario            @relation(fields: [idUsuarioRes], references: [idUsuario])
+}
+
+model Actividades {
+  idActividad  Int      @id @default(autoincrement())
+  Titulo       String
+  Descripcion  String
+  Fecha_inicio DateTime
+  Fecha_fin    DateTime
+  Tipo         String
+  idUsuario    Int
+  Usuario      Usuario  @relation(fields: [idUsuario], references: [idUsuario])
+}
+
+model AdmiBeca {
+  idAdmiBeca        Int                 @id @default(autoincrement())
+  Nombre            String
+  Descripcion       String
+  Requisitos        String
+  idCarrera         Int
+  Carrera           Carrera             @relation(fields: [idCarrera], references: [idCarrera])
+  BeneficiariosBeca BeneficiariosBeca[]
+}
+
+model BeneficiariosBeca {
+  idBeneficiario Int      @id @default(autoincrement())
+  idAdmiBeca     Int
+  idPersona      Int
+  AdmiBeca       AdmiBeca @relation(fields: [idAdmiBeca], references: [idAdmiBeca])
+  Persona        Persona  @relation(fields: [idPersona], references: [idPersona])
+}
+
+model Carrera {
+  idCarrera          Int                  @id @default(autoincrement())
+  Nombre             String
+  Descripcion        String
+  Perfil_egresado    String
+  Oportunidades_prof String
+  AdmiBeca           AdmiBeca[]
+  HistorialAcademico HistorialAcademico[]
+  Personas           Persona[]
+}
+
+model HistorialAcademico {
+  idHistorial  Int      @id @default(autoincrement())
+  Fecha_inicio DateTime
+  Fecha_fin    DateTime
+  Estado       String
+  idCarrera    Int
+  idPersona    Int
+  Carrera      Carrera  @relation(fields: [idCarrera], references: [idCarrera])
+  Persona      Persona  @relation(fields: [idPersona], references: [idPersona])
+}
