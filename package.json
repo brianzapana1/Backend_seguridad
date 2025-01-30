@@ -4,8 +4,9 @@
   "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "start": "npx prisma migrate deploy --schema=prisma/schema.db.prisma && npx prisma migrate deploy --schema=prisma/schema.logs.prisma && node src/server.js",
+    "dev": "nodemon src/server.js",
+    "postinstall": "npx prisma generate --schema=prisma/schema.db.prisma && npx prisma generate --schema=prisma/schema.logs.prisma"
   },
   "dependencies": {
     "@prisma/client": "^6.2.1",
@@ -21,10 +22,10 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "pg": "^8.13.1",
-    "prisma": "^6.2.1",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prisma": "^6.2.1"
   }
 }
